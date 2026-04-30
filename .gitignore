@@ -1,4 +1,10 @@
-/obj/
-/lib/
-/alire/
-/config/
+obj/
+lib/
+alire/
+config/
+share/
+*.ali
+*.o
+*.exe
+*.out
+test_oh_err*

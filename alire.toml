@@ -7,4 +7,4 @@ maintainers = ["0xA672 <Cero0xA672@outlook.com>"]
 licenses = "MIT OR Apache-2.0"
 website = ""
 tags = ["result", "error-handling", "functional", "rust", "option"]
-github_login = '0xA672'
+github-login = '0xA672'

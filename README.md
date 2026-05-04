@@ -1,11 +1,14 @@
 # oherr
+
 **A Rust-style `Result` type for Ada. (Oh, error!)**
 
 [![License](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue)](./LICENSE)
 [![Ada](https://img.shields.io/badge/Language-Ada-00a2e1?logo=Ada)](https://www.ada-lang.io/)
 
 # Usage – Instantiation
+
 Because `Oh_Err` is generic, you must instantiate it with your concrete types first.
+
 ```ada
 with Oh_Err;
 
@@ -15,12 +18,16 @@ package Integer_Result is new Oh_Err
 
 -- Now use Integer_Result.Result, Integer_Result.Ok, etc.
 ```
+
 For readability,you can rename this instantiation:
+
 ```ada
 package Result_Int is new Oh_Err (Integer, String);
 use Result_Int;
 ```
+
 ## Quick Start
+
 ```ada
 with Ada.Text_IO; use Ada.Text_IO;
 with Oh_Err;
@@ -58,15 +65,21 @@ exception
       Put_Line ("Something went wrong!");
 end Demo;
 ```
+
 # API Reference
+
 ## Generic formal parameters
+
 ```ada
 generic
    type Success_Type is private;
-   type Error_Type is private;
+   type Error_Type (<>) is private;
 package Oh_Err is ...
 ```
+
 Your chosen types become `Success_Type` and `Error_Type` inside the instantiation.
+> `Error_Type` can be indefinite (e.g., `String`), thanks to the `(<>)` marker.
+
 ## Main types
 
 | Name | Description |

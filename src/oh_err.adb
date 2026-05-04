@@ -9,7 +9,7 @@ package body Oh_Err is
 
    function Err (Error : Error_Type) return Result is
    begin
-      return (Success => False, Err => Error);
+      return (Success => False, Err => Error_Holder.To_Holder (Error));
    end Err;
 
    function Is_Ok (R : Result) return Boolean is
@@ -74,7 +74,7 @@ package body Oh_Err is
       if R.Success then
          Ok_Handler(R.Value);
       else
-         Err_Handler(R.Err);
+         Err_Handler(Error_Holder.Element (R.Err));
       end if;
    end Match;
 
